@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 from collections import deque
 import mediapipe as mp
-from utils.utils_v2 import get_idx_to_coordinates, rescale_frame
+from utils.utils_hmt import get_idx_to_coordinates, rescale_frame
 
 mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
