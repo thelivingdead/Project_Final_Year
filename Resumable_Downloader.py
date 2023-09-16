@@ -1,7 +1,6 @@
 import click
 import hashlib
 import requests
-
 from pathlib import Path
 from tqdm import tqdm
 
@@ -66,7 +65,7 @@ HASHES = [
 ]
 """List: Contains sha265 hashes calculated for the files in ``URLS``."""
 
-DOWNLOAD_FOLDER = Path('.')
+DOWNLOAD_FOLDER = Path('E:/Dataset/')
 """pathlib.Path: Points to the target directory of downloads."""
 
 
@@ -206,4 +205,5 @@ def validate():
 
 
 if __name__ == '__main__':
-    cli()
+    # cli()
+    download()
