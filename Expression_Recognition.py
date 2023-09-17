@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-from keras.models import model_from_json
+from keras.models import model_from_json, load_model
 import keras.utils as image
 from utils.utils_fr.utils_fr import rescale_frame
 
