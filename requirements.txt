@@ -1,0 +1,8 @@
+click==8.1.7
+keras==2.10.0
+mediapipe==0.10.3
+numpy==1.24.3
+opencv_contrib_python==4.8.0.76
+opencv_python==4.8.0.76
+Requests==2.31.0
+tqdm==4.66.1
