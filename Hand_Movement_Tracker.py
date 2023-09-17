@@ -2,17 +2,19 @@ import numpy as np
 import cv2
 from collections import deque
 import mediapipe as mp
+from mediapipe.python.solutions import drawing_utils, hands
 from utils.utils_hmt import get_idx_to_coordinates, rescale_frame
 
-mp_drawing = mp.solutions.drawing_utils
-mp_hands = mp.solutions.hands
+mp_drawing = drawing_utils
+mp_hands = hands
 
 
 def main():
-    hands = mp_hands.Hands(
-        min_detection_confidence=0.7, min_tracking_confidence=0.7)
+    hands = mp_hands.Hands(min_detection_confidence=0.7, min_tracking_confidence=0.7)
     hand_landmark_drawing_spec = mp_drawing.DrawingSpec(thickness=5, circle_radius=5)
-    hand_connection_drawing_spec = mp_drawing.DrawingSpec(thickness=10, circle_radius=10)
+    hand_connection_drawing_spec = mp_drawing.DrawingSpec(
+        thickness=10, circle_radius=10
+    )
     cap = cv2.VideoCapture(0)
     pts = deque(maxlen=64)
     while cap.isOpened():
@@ -30,7 +32,8 @@ def main():
                     landmark_list=hand_landmarks,
                     connections=mp_hands.HAND_CONNECTIONS,
                     landmark_drawing_spec=hand_landmark_drawing_spec,
-                    connection_drawing_spec=hand_connection_drawing_spec)
+                    connection_drawing_spec=hand_connection_drawing_spec,
+                )
                 idx_to_coordinates = get_idx_to_coordinates(image, results_hand)
         if 8 in idx_to_coordinates:
             pts.appendleft(idx_to_coordinates[8])  # Index Finger
@@ -46,5 +49,5 @@ def main():
     cap.release()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
