@@ -25,12 +25,12 @@ def main():
         results_hand = hands.process(image)
         image.flags.writeable = True
         image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
-        if results_hand.multi_hand_landmarks:
-            for hand_landmarks in results_hand.multi_hand_landmarks:
+        if results_hand[0].multi_hand_landmarks:
+            for hand_landmarks in results_hand[0].multi_hand_landmarks:
                 mp_drawing.draw_landmarks(
                     image=image,
                     landmark_list=hand_landmarks,
-                    connections=mp_hands.HAND_CONNECTIONS,
+                    connections=list(mp_hands.HAND_CONNECTIONS),
                     landmark_drawing_spec=hand_landmark_drawing_spec,
                     connection_drawing_spec=hand_connection_drawing_spec,
                 )
