@@ -8,5 +8,8 @@ This code helps you to detect Indian Sign Language and provide captions for the 
 
 The example code is in Python ([version 3.10.11](https://www.python.org/download/releases/10.10.11/) or higher will work).
 You need to install opencv library
-Other requirement for the projet can be installed as follows
+Other requirement for the project can be installed as follows:
 `pip install requirements.txt`
+<br>
+To initialize the same anaconda environement use:
+`conda env create -n ENVNAME --file environment.yml`
